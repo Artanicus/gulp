@@ -1,8 +1,10 @@
-FROM debian:stretch
+FROM debian:latest
+
+ARG NODE=19
 
 RUN apt-get update && apt-get install -y \
     curl \
-    && curl -sL https://deb.nodesource.com/setup_8.x | bash /dev/stdin \
+    && curl -sL https://deb.nodesource.com/setup_${NODE}.x | bash /dev/stdin \
     && apt-get install -y nodejs
 
 RUN apt-get install -y \
